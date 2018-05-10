@@ -27,7 +27,7 @@
             get
             {
                 // Seria porreiro adicionar o peso de todas as coisas no saco
-                return baseWeight;
+                return baseWeight + BagOfStuff.Weight;
             }
         }
 
@@ -37,6 +37,12 @@
         {
             this.baseWeight = baseWeight;
             BagOfStuff = new Bag(maxBagItems);
+        }
+
+        public override string ToString() {
+            return $"O player pesa {Weight} Kg e " + $"tem {BagOfStuff.Count} " +
+                $"itens guardados e a percentagem do peso total que corresponde " +
+                $"à mochila é {(BagOfStuff.Weight * 100) / Weight}";
         }
     }
 }

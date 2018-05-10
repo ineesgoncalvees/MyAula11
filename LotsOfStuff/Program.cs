@@ -25,6 +25,8 @@ namespace Aula11
             // Instanciar um jogador com 70 quilos
             Player p = new Player(70.0f);
 
+            Console.WriteLine(p);
+
             //
             // Adicionar vários itens à mochila do jogador:
             //
@@ -67,6 +69,8 @@ namespace Aula11
 
             // Mostrar de novo informação sobre a mochila
             Console.WriteLine(p.BagOfStuff);
+
+            Console.WriteLine(p);
         }
     }
 }
