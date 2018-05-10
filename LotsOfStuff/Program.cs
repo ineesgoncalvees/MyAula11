@@ -30,33 +30,32 @@ namespace Aula11
             //
 
             // Pão com 2 dias, 500 gramas
-            p.BagOfStuff.AddThing(new Food(FoodType.Bread, 2, 0.500f));
+            p.BagOfStuff.Add(new Food(FoodType.Bread, 2, 0.500f));
             // 300 gramas de vegetais com 5 dias
-            p.BagOfStuff.AddThing(new Food(FoodType.Vegetables, 5, 0.300f));
+            p.BagOfStuff.Add(new Food(FoodType.Vegetables, 5, 0.300f));
             // Pistola com 1.5kg + 50 gramas por bala, carregada com 10 balas,
             // com um custo de 250€
-            p.BagOfStuff.AddThing(new Gun(1.5f, 0.050f, 10, 250f));
+            p.BagOfStuff.Add(new Gun(1.5f, 0.050f, 10, 250f));
             // 200 gramas de fruta fresca
-            p.BagOfStuff.AddThing(new Food(FoodType.Fruit, 0, 0.200f));
+            p.BagOfStuff.Add(new Food(FoodType.Fruit, 0, 0.200f));
             // Mais uma arma
-            p.BagOfStuff.AddThing(new Gun(2f, 0.09f, 25, 325f));
+            p.BagOfStuff.Add(new Gun(2f, 0.09f, 25, 325f));
 
             Console.WriteLine(p.BagOfStuff);
 
             otherBag = new Bag(5);
 
-            otherBag.AddThing(new Food(FoodType.Meat, 1, 1f));
-            otherBag.AddThing(new Food(FoodType.Vegetables, 2, 2.5f));
+            otherBag.Add(new Food(FoodType.Meat, 1, 1f));
+            otherBag.Add(new Food(FoodType.Vegetables, 2, 2.5f));
 
-            p.BagOfStuff.AddThing(otherBag);
+            p.BagOfStuff.Add(otherBag);
 
             // Mostrar informação acerca dos conteúdos da mochila
             Console.WriteLine(p.BagOfStuff);
 
             // Percorrer itens na mochila e tentar "imprimir" cada um
-            for (int i = 0; i < p.BagOfStuff.StuffCount; i++)
+            foreach (IStuff aThing in p.BagOfStuff)
             {
-                IStuff aThing = p.BagOfStuff.GetThing(i);
                 Console.WriteLine($"\t=> {aThing}");
 
                 // Se item atual for uma arma, disparar a mesma
