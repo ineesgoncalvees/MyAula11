@@ -54,8 +54,8 @@
         /// </returns>
         public override string ToString()
         {
-            return $"Arma pesa {Weight} Kg (inclui {NumberOfBullets} " +
-                $"balas) e custa {Value} EUR";
+            return $"Arma pesa {Weight:f2} Kg (inclui {NumberOfBullets:f2} " +
+                $"balas) e custa {Value:c}";
         }
     }
 }

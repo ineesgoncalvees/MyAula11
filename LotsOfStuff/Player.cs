@@ -40,9 +40,9 @@
         }
 
         public override string ToString() {
-            return $"O player pesa {Weight} Kg e " + $"tem {BagOfStuff.Count} " +
+            return $"O player pesa {Weight:f2} Kg e " + $"tem {BagOfStuff.Count:f2} " +
                 $"itens guardados e a percentagem do peso total que corresponde " +
-                $"à mochila é {(BagOfStuff.Weight * 100) / Weight}";
+                $"à mochila é {(BagOfStuff.Weight) / Weight:p1}";
         }
     }
 }

@@ -13,6 +13,8 @@ namespace Aula11
         /// </param>
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
             // Criar uma nova instância de Program e
             // invocar o método TestProjet na instância criada
             Program prog = new Program();
