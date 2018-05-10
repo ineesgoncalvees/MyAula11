@@ -5,6 +5,8 @@ namespace Aula11
     /// <summary>Programa para testar o projeto</summary>
     public class Program
     {
+        Bag otherBag;
+
         /// <summary>O programa começa aqui no Main</summary>
         /// <param name="args">
         /// Argumentos de linha de comandos (são ignorados neste programa)
@@ -38,6 +40,15 @@ namespace Aula11
             p.BagOfStuff.AddThing(new Food(FoodType.Fruit, 0, 0.200f));
             // Mais uma arma
             p.BagOfStuff.AddThing(new Gun(2f, 0.09f, 25, 325f));
+
+            Console.WriteLine(p.BagOfStuff);
+
+            otherBag = new Bag(5);
+
+            otherBag.AddThing(new Food(FoodType.Meat, 1, 1f));
+            otherBag.AddThing(new Food(FoodType.Vegetables, 2, 2.5f));
+
+            p.BagOfStuff.AddThing(otherBag);
 
             // Mostrar informação acerca dos conteúdos da mochila
             Console.WriteLine(p.BagOfStuff);
