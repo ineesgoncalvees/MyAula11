@@ -96,6 +96,14 @@ namespace Aula11
             return lst;
         }
 
+        public IEnumerable<T> BetterGetItensOfType<T>() where T : IStuff{
+            foreach(IStuff cena in this) {
+                if(cena is T) {
+                    yield return (T)cena;
+                }
+            }
+        }
+
         /// <summary>
         /// Sobreposição do método ToString() para a classe Bag.
         /// </summary>

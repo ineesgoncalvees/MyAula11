@@ -87,6 +87,11 @@ namespace Aula11
             {
                 Console.WriteLine(f);
             }
+
+            foreach (Gun g in p.BagOfStuff.BetterGetItensOfType<Gun>())
+            {
+                Console.WriteLine(g);
+            }
         }
     }
 }
