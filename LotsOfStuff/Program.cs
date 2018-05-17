@@ -73,6 +73,20 @@ namespace Aula11
             Console.WriteLine(p.BagOfStuff);
 
             Console.WriteLine(p);
+
+            Console.WriteLine("A mochila do player tem armas? " +
+                p.BagOfStuff.ContainsItemOfTipe<Gun>());
+
+            Console.WriteLine("A mochila do player tem comida? " +
+                p.BagOfStuff.ContainsItemOfTipe<Food>());
+
+            Console.WriteLine("A mochila do player tem outras mochilas? " +
+                p.BagOfStuff.ContainsItemOfTipe<Bag>());
+
+            foreach (Food f in p.BagOfStuff.GetItensOfType<Food>())
+            {
+                Console.WriteLine(f);
+            }
         }
     }
 }

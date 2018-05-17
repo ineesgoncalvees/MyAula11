@@ -1,7 +1,7 @@
 ﻿namespace Aula11
 {
     /// <summary>Classe que define uma pistola</summary>
-    public class Gun : IStuff
+    public class Gun : ItemWithKarma, IStuff
     {
         /// <summary>Peso base (variável de instância read-only)</summary>
         private readonly float baseWeight;
@@ -55,7 +55,7 @@
         public override string ToString()
         {
             return $"Arma pesa {Weight:f2} Kg (inclui {NumberOfBullets:f2} " +
-                $"balas) e custa {Value:c}";
+                $"balas) e custa {Value:c}" + " karma = " + Karma;
         }
     }
 }

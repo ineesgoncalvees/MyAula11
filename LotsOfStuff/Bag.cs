@@ -6,7 +6,7 @@ namespace Aula11
     /// <summary>
     /// Classe que representa uma mochila ou saco que contem itens
     /// </summary>
-    public class Bag : List<IStuff>, IStuff
+    public class Bag : List<IStuff>, IStuff, IHasKarma
     {
 
         /// <summary> 
@@ -23,6 +23,25 @@ namespace Aula11
                         totalWeight += aThing.Weight;
                 }
                 return totalWeight;
+            }
+        }
+
+        public float Karma {
+            get {
+                int nCenasCKarma = 0;
+                float total = 0;
+                Console.WriteLine(nCenasCKarma);
+
+                foreach (IStuff cena in this)
+                {
+                    if (cena is IHasKarma)
+                    {
+                        total += (cena as IHasKarma).Karma;
+                        nCenasCKarma++;
+                    }
+                }
+
+                return total / nCenasCKarma;
             }
         }
 
@@ -54,6 +73,29 @@ namespace Aula11
 
         }
 
+        public bool ContainsItemOfTipe<T>() where T : IStuff
+        {
+            foreach (IStuff cena in this)
+            {
+                if (cena is T)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public IEnumerable<T> GetItensOfType<T>() where T : class, IStuff {
+            List<T> lst = new List<T>();
+
+            foreach(IStuff cena in this) {
+                if(cena is T) {
+                    lst.Add(cena as T);
+                }
+            }
+            return lst;
+        }
+
         /// <summary>
         /// Sobreposição do método ToString() para a classe Bag.
         /// </summary>
@@ -63,7 +105,7 @@ namespace Aula11
         public override string ToString()
         {
             return $"Mochila com {Count:f2} itens e um peso e valor " +
-                $"totais de {Weight:f2} Kg e {Value:c} , respetivamente";
+                $"totais de {Weight:f2} Kg e {Value:c} , respetivamente e karma = " + Karma;
         }
     }
 }
